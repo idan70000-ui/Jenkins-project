@@ -1,0 +1,101 @@
+פלואו של הדברים:
+הדפדפן שלך  →  web (שלנו)  →  api (שלנו)  →  open.er-api.com (חיצוני)
+   (5000)         (5000)         (4000)              (אינטרנט)
+
+
+
+   http://localhost:5000
+   http://localhost:4000
+   http://localhost:5000/health
+   http://localhost:4000/health
+   http://localhost:8081
+
+
+
+#integration:
+
+
+node integration-test.js:
+
+
+checking if the api service is running...
+✅ API is returning valid rate data
+✅ Web service is successfully displaying API data
+🎉 Integration test passed!!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+v20.20.2
+

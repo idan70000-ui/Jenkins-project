@@ -1,0 +1,17 @@
+{
+  "name": "api-service",
+  "version": "1.0.0",
+  "description": "שירות API שמחזיר נתונים ב-JSON בלבד",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "c8 --check-coverage --lines 80 --functions 80 --branches 80 --statements 80 --reporter=text node --test"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "c8": "^12.0.0",
+    "supertest": "^7.2.2"
+  }
+}
