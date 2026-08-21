@@ -69,10 +69,10 @@ pipeline {
             }
         }
 
-        stage('Integration Test') {
+                stage('Integration Test') {
             steps {
                 sh 'sleep 5'
-                sh 'node integration-test.js'
+                sh 'API_URL=http://api:4000 WEB_URL=http://web:5000 node integration-test.js'
             }
         }
         stage('Self-Update Jenkins') {

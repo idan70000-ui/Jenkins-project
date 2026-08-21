@@ -1,8 +1,10 @@
+const API_URL = process.env.API_URL || 'http://localhost:4000';
+const WEB_URL = process.env.WEB_URL || 'http://localhost:5000';
+
 async function runIntegrationTest() {
   console.log('checking if the api service is running...');
 
-  // 1. בדיקה ישירה מול ה-api
-  const apiRes = await fetch('http://localhost:4000/data');
+  const apiRes = await fetch(`${API_URL}/data`);
   if (!apiRes.ok) {
     throw new Error(`API error (status ${apiRes.status})`);
   }
@@ -12,8 +14,7 @@ async function runIntegrationTest() {
   }
   console.log('✅ API is returning valid rate data');
 
-  // 2. בדיקה שה-web באמת מציג נתונים אמיתיים שהגיעו מה-api
-  const webRes = await fetch('http://localhost:5000');
+  const webRes = await fetch(WEB_URL);
   if (!webRes.ok) {
     throw new Error(`Web service error (status ${webRes.status})`);
   }
