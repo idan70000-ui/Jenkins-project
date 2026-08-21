@@ -54,6 +54,9 @@ pipeline {
         }
 
         stage('Deploy') {
+            when {
+                branch 'master'
+            }
             steps {
                 sh 'docker network create app-network || true'
                 sh 'docker rm -f api web || true'
@@ -69,12 +72,14 @@ pipeline {
             }
         }
 
-                stage('Integration Test') {
+        stage('Integration Test') {
+            when {
+                branch 'master'
+            }
             steps {
                 sh 'sleep 5'
                 sh 'API_URL=http://api:4000 WEB_URL=http://web:5000 node integration-test.js'
             }
         }
-     
     }
 }
