@@ -75,5 +75,13 @@ pipeline {
                 sh 'node integration-test.js'
             }
         }
+        stage('Self-Update Jenkins') {
+    when {
+        changeset "jenkins-container/**"
+    }
+    steps {
+        sh 'docker compose up -d --build jenkins'
+    }
+    }
     }
 }
