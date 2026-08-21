@@ -13,7 +13,7 @@ RUN mkdir -p /usr/local/lib/docker/cli-plugins && \
     -o /usr/local/lib/docker/cli-plugins/docker-compose && \
     chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
-RUN groupadd -f docker && usermod -aG docker jenkins
+RUN usermod -aG root jenkins
 
 USER jenkins
 
@@ -24,6 +24,3 @@ RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 
 COPY security.groovy /usr/share/jenkins/ref/init.groovy.d/security.groovy
 COPY job.groovy /usr/share/jenkins/ref/init.groovy.d/job.groovy
-
-
-
