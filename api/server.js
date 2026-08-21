@@ -12,7 +12,6 @@ app.get('/health', (req, res) => {
   });
 });  
 
-
 // החלק העיקרי - מושך שערי מטבעות אמיתיים ומחזיר JSON
 app.get('/data', async (req, res) => {
   try {
