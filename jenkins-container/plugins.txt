@@ -1,4 +1,5 @@
 git
+git-branch-source
 workflow-aggregator
 credentials-binding
 timestamper
