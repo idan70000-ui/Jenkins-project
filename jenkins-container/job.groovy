@@ -5,7 +5,7 @@ import jenkins.plugins.git.GitSCMSource
 import com.cloudbees.hudson.plugins.folder.computed.PeriodicFolderTrigger
 
 def instance = Jenkins.getInstance()
-def jobName = "jenkins-assignment-mb"
+def jobName = "MyProject-Idannadler"
 
 if (instance.getItem(jobName) == null) {
     def mb = instance.createProject(WorkflowMultiBranchProject.class, jobName)
