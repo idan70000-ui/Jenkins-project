@@ -53,21 +53,27 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+                stage('Deploy') {
             when {
                 branch 'master'
             }
             steps {
                 sh 'docker network create app-network || true'
-                sh 'docker rm -f api web || true'
+                sh 'docker rm -f api web nginx || true'
                 sh """
                     docker run -d --network app-network --name api \
-                      -p 4000:4000 api-service:${BUILD_NUMBER_TAG}
+                      api-service:${BUILD_NUMBER_TAG}
                 """
                 sh """
                     docker run -d --network app-network --name web \
-                      -p 5000:5000 -e API_URL=http://api:4000 \
+                      -e API_URL=http://api:4000 \
                       web-service:${BUILD_NUMBER_TAG}
+                """
+                sh 'docker build -t nginx-proxy:latest ./nginx'
+                sh """
+                    docker run -d --network app-network --name nginx \
+                      -p 4000:4000 -p 5000:5000 \
+                      nginx-proxy:latest
                 """
             }
         }
