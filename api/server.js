@@ -7,12 +7,11 @@ const BUILD_NUMBER = process.env.BUILD_NUMBER || 'local';
 const GIT_COMMIT = (process.env.GIT_COMMIT || 'unknown').substring(0, 7);
 
 app.get('/health', (req, res) => {
-  res.status(200).json({
-    status: 'ok',
-    build: BUILD_NUMBER,
-    commit: GIT_COMMIT
+  res.status(500).json({
+    status: 'broken'
   });
-});
+});  
+
 
 // החלק העיקרי - מושך שערי מטבעות אמיתיים ומחזיר JSON
 app.get('/data', async (req, res) => {
