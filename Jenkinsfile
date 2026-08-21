@@ -75,13 +75,6 @@ pipeline {
                 sh 'API_URL=http://api:4000 WEB_URL=http://web:5000 node integration-test.js'
             }
         }
-        stage('Self-Update Jenkins') {
-    when {
-        changeset "jenkins-container/**"
-    }
-    steps {
-        sh 'docker compose up -d --build jenkins'
-    }
-    }
+     
     }
 }
