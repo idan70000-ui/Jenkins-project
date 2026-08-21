@@ -1,5 +1,7 @@
 git
-git-branch-source
+branch-api
+cloudbees-folder
+workflow-multibranch
 workflow-aggregator
 credentials-binding
 timestamper
