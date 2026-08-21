@@ -13,6 +13,8 @@ RUN mkdir -p /usr/local/lib/docker/cli-plugins && \
     -o /usr/local/lib/docker/cli-plugins/docker-compose && \
     chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
+RUN groupadd -f docker && usermod -aG docker jenkins
+
 USER jenkins
 
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
